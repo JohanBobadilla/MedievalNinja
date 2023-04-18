@@ -1496,7 +1496,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 31.7
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1524,7 +1524,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -1536,7 +1536,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -1549,6 +1549,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -11707,7 +11731,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       main_houses_368: 21300736
-      main_houses_139: 21300278
+      main_houses_308: 21300616
       main_houses_39: 21300078
       main_houses_182: 21300364
       main_houses_134: 21300268
@@ -11980,12 +12004,12 @@ TextureImporter:
       main_houses_416: 21300832
       main_houses_410: 21300820
       main_houses_335: 21300670
-      main_houses_482: 21300964
-      main_houses_257: 21300514
       main_houses_445: 21300890
+      main_houses_257: 21300514
       main_houses_193: 21300386
       main_houses_276: 21300552
       main_houses_242: 21300484
+      main_houses_482: 21300964
       main_houses_192: 21300384
       main_houses_88: 21300176
       main_houses_465: 21300930
@@ -12187,8 +12211,8 @@ TextureImporter:
       main_houses_376: 21300752
       main_houses_164: 21300328
       main_houses_3: 21300006
+      main_houses_139: 21300278
       main_houses_351: 21300702
-      main_houses_308: 21300616
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
