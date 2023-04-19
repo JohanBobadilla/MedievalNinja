@@ -8,6 +8,7 @@ public class SavedGame
     public List<UnlockedSet> faceSets;
     public int armorSetIndex;
     public int faceSetIndex;
+    public int gems;
 
     public SavedGame()
     {
@@ -18,5 +19,6 @@ public class SavedGame
         faceSets.Add(unlockedSet);
         armorSetIndex = 0;
         faceSetIndex = 0;
+        gems = 5000;
     }
 }

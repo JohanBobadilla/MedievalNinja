@@ -409,7 +409,7 @@ SpriteRenderer:
   m_SortingLayerID: -959472451
   m_SortingLayer: 1
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04f6c40e52535b941b42e11550f9cb8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -783,6 +783,7 @@ GameObject:
   - component: {fileID: 8298527317956983637}
   - component: {fileID: 8298527317956983639}
   - component: {fileID: 8298527317956983638}
+  - component: {fileID: 8298527317956983640}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -880,6 +881,32 @@ MonoBehaviour:
   virtualCameraPrefab: {fileID: 4694512243699371507, guid: db1e4a043c5248c4780295bd17ed0c87, type: 3}
   walkSpeed: 2
   runSpeed: 4
+--- !u!114 &8298527317956983640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677426143866888792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4cbddda7560fa40a6140693f55bf74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightBoot: {fileID: 8835719937565791088}
+  leftBoot: {fileID: 8835719937663487740}
+  rightLeg: {fileID: 8835719940890837300}
+  leftLeg: {fileID: 8835719940507510986}
+  pelvis: {fileID: 8835719938573347856}
+  torso: {fileID: 8835719943198729726}
+  rightShoulder: {fileID: 8835719940744112718}
+  leftShoulder: {fileID: 8835719940840655092}
+  rightForearm: {fileID: 8835719937050222646}
+  leftForearm: {fileID: 8835719940013209488}
+  rightGlove: {fileID: 8835719940764149132}
+  leftGlove: {fileID: 8835719936901525762}
+  hood: {fileID: 8835719939904568138}
+  face: {fileID: 8835719938023927012}
 --- !u!1 &8677426143891359370
 GameObject:
   m_ObjectHideFlags: 0

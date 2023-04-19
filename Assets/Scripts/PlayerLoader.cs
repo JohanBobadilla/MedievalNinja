@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLoader : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerLoader : MonoBehaviour
     [Header("StoredInformation")]
 
     private SavedGame savedGame;
+    public Text gemsText;
 
     void Start()
     {
@@ -41,10 +43,13 @@ public class PlayerLoader : MonoBehaviour
             savedGame = new SavedGame();
         }
 
-        LoadSets(savedGame.armorSetIndex, savedGame.faceSetIndex);
+        LoadArmorSet(savedGame.armorSetIndex);
+        LoadFaceSet(savedGame.faceSetIndex);
+        gemsText.text = savedGame.gems.ToString();
+        SaveGame();
     }
 
-    public void LoadSets(int armorIndex, int faceIndex)
+    public void LoadArmorSet(int armorIndex)
     {
         rightBoot.sprite = Db.instance.armorSets[armorIndex].rightBoot;
         leftBoot.sprite = Db.instance.armorSets[armorIndex].leftBoot;
@@ -59,10 +64,14 @@ public class PlayerLoader : MonoBehaviour
         rightGlove.sprite = Db.instance.armorSets[armorIndex].rightGlove;
         leftGlove.sprite = Db.instance.armorSets[armorIndex].leftGlove;
         hood.sprite = Db.instance.armorSets[armorIndex].hood;
-        face.sprite = Db.instance.faceSets[faceIndex].face;
         savedGame.armorSetIndex = armorIndex;
+
+    }
+
+    public void LoadFaceSet(int faceIndex)
+    {
+        face.sprite = Db.instance.faceSets[faceIndex].face;
         savedGame.faceSetIndex = faceIndex; 
-        SaveGame();
     }
 
     public void SaveGame()
@@ -71,7 +80,40 @@ public class PlayerLoader : MonoBehaviour
         PlayerPrefs.SetString("SavedGame", savedGameJson);  
     }
 
-    private void OnApplicationQuit() {
-        SaveGame();
+    public bool AddArmorSet(int amount, UnlockedSet set)
+    {
+        if (savedGame.gems - amount < 0)
+        {
+            return false;
+        }
+        else
+        {
+            savedGame.gems -= amount;
+            gemsText.text = savedGame.gems.ToString();
+            savedGame.armorSets.Add(set);
+            SaveGame();
+            return true;
+        }
+    }
+
+    public bool AddFaceSet(int amount, UnlockedSet set)
+    {
+        if (savedGame.gems - amount < 0)
+        {
+            return false;
+        }
+        else
+        {
+            savedGame.gems -= amount;
+            gemsText.text = savedGame.gems.ToString();
+            savedGame.faceSets.Add(set);
+            SaveGame();
+            return true;
+        }
+    }
+
+    public SavedGame GetPlayerStatus()
+    {
+        return savedGame;
     }
 }

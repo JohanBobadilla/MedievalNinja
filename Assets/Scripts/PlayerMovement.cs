@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator playerAnimator;
     public GameObject virtualCameraPrefab;
+    CinemachineVirtualCamera virtualCamera;
 
     [Header("Parameters")]
     public float walkSpeed = 1f;
     public float runSpeed = 3f;
+    public float cameraZoom = 5f;
     private float move_x;
     private float move_y;
     private bool isFacingRight;
@@ -43,8 +45,9 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogWarning("No Virtual camera in the Scene, instatiating one...");
         }
 
-		CinemachineVirtualCamera virtualCamera = camera.GetComponent<CinemachineVirtualCamera>();
+		virtualCamera = camera.GetComponent<CinemachineVirtualCamera>();
 		virtualCamera.Follow = this.transform;
+        virtualCamera.m_Lens.OrthographicSize = cameraZoom;
 	}
 
     void Update()
@@ -98,6 +101,24 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetTrigger("attack");
         }
         
+    }
+
+    public void SetMovementStatus(bool _canMove)
+    {
+        canMove = _canMove;
+        if (rb != null) { rb.velocity = Vector2.zero; }
+        playerAnimator.SetFloat("move", 0);
+        playerAnimator.ResetTrigger("attack");
+    }
+
+    public void SetCameraZoom(float ortSize)
+    {
+        virtualCamera.m_Lens.OrthographicSize = ortSize;
+    }
+
+    public void ResetCamera()
+    {
+        virtualCamera.m_Lens.OrthographicSize = cameraZoom;
     }
 
 
