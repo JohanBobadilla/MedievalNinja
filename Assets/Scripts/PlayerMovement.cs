@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator playerAnimator;
     public GameObject virtualCameraPrefab;
     CinemachineVirtualCamera virtualCamera;
+    public AudioClip[] FootstepAudioClips;
+    public AudioSource footSource;
 
     [Header("Parameters")]
     public float walkSpeed = 1f;
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             isAttacking = Input.GetKeyDown(KeyCode.Z);
             Flip();
             UpdateAnimator();
+            OnFootstep();
         }
     }
 
@@ -87,6 +90,20 @@ public class PlayerMovement : MonoBehaviour
             Vector3 localScale = this.transform.localScale;
             localScale.x *= -1;
             this.transform.localScale = localScale;
+        }
+    }
+
+    private void OnFootstep()
+    {
+        if (footSource.isPlaying) {return;}
+        if (FootstepAudioClips.Length > 0)
+        {
+            var index = Random.Range(0, FootstepAudioClips.Length);
+            if (playerAnimator.GetFloat("move") != 0)
+            {
+                footSource.pitch = isRunning ? 1.3f : 1.05f;
+                footSource.PlayOneShot(FootstepAudioClips[index]);
+            }
         }
     }
 
